@@ -1,5 +1,4 @@
 ---
 
 - include: bahmni-support-user.yml
-  when: not docker|default(false)|bool
 
