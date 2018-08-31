@@ -15,7 +15,7 @@
     key: "{{ epel_repo_gpg_key_url }}"
     state: present
 
--block:
+- block:
 
   - name: Install ntp
     yum: name=ntp state=present
