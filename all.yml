@@ -16,12 +16,12 @@
 - hosts: local
   sudo: yes
   roles:
-    - { role: selinux, selinux_state: enforcing, selinux_policy: targeted, tags: selinux }
+    - { role: selinux, selinux_state: enforcing, selinux_policy: targeted, tags: selinux, when: not docker|default(false)|bool }
     - { role: bahmni-base }
     - { role: bahmni-user }
     - { role: installer-config }
-    - { role: bahmni-support-user, tags: support-user }
-    - { role: iptables, tags: iptables }
+    - { role: bahmni-support-user, tags: support-user, when: not docker|default(false)|bool }
+    - { role: iptables, tags: iptables, when: not docker|default(false)|bool }
   tags:
     - setup
 
