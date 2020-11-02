@@ -25,3 +25,4 @@
   delegate_to: "{{ item }}"
   with_items: "{{groups['bahmni-emr']}}"
   when:  maintenance_status == 'end'
+  ignore_errors: true
